@@ -31,7 +31,7 @@ export default function App() {
   return (
     <div>
       <Navbar active={active} />
-      <main id="content" className="mx-auto max-w-6xl px-4 md:px-6">
+      <main className="mx-auto max-w-6xl px-4 md:px-6">
         {sections.map(s => (
           <section id={s.id} key={s.id} aria-labelledby={`${s.id}-title`} className="scroll-mt-24">
             {s.el}
