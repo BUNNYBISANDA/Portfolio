@@ -61,11 +61,11 @@ export const content: Content = {
     role: 'IT Student & Badminton Coach',
     tagline: 'I build useful software and coach athletes with data-aware training.',
     location: 'Bangkok',
-    email: 'hello@example.com',
+    email: 'bunnybisanda05@gmail.com',
     socials: {
       github: 'https://github.com/dashboard',
       linkedin: 'https://www.linkedin.com/in/bisanda-jayathilaka-373635311/',
-      whatsapp: 'https://wa.me/66807747475',
+      whatsapp: 'https://wa.me/66807747437',
       discord: 'https://discord.com/users/placeholder'
     }
   },
@@ -106,7 +106,7 @@ export const content: Content = {
       blurb: 'This site — fast, accessible, and minimal with smooth interactions.',
       tech: ['Vite', 'React', 'Tailwind'],
       image: project4,
-      links: { github: '#', live: '#' }
+      links: { github: 'https://github.com/BUNNYBISANDA/Portfolio', live: 'https://bunnybisanda.github.io/Portfolio/' }
     }
   ],
   coachingPlans: [

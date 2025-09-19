@@ -4,6 +4,7 @@ import Card from '@/components/Card'
 import { content } from '@/data/content'
 import { Github, Linkedin, Phone, MessageSquare } from 'lucide-react'
 import { FormEvent, useState } from 'react'
+import { sendContactEmail } from '@/lib/email'
 
 export default function Contact() {
   const { profile } = content
@@ -24,22 +25,22 @@ export default function Contact() {
     e.preventDefault()
     if (!validate()) return
     setStatus('sending')
-    // Placeholder async (easy to wire EmailJS later)
     try {
-      await new Promise(res => setTimeout(res, 600))
+      await sendContactEmail(form)
       setStatus('success')
       setForm({ name: '', email: '', message: '' })
-    } catch {
+    } catch (error) {
+      console.error('Contact form submission failed', error)
       setStatus('error')
     }
   }
 
   return (
-    <Section id="contact" title="Contact" subtitle="Let’s talk">
+    <Section id="contact" title="Contact" subtitle="Let's talk">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <p className="type-body text-muted max-w-prose">
-            I’m open to collaboration, coaching inquiries, and project work. The easiest way to reach me is by email or WhatsApp.
+            I'm open to collaboration, coaching inquiries, and project work. The easiest way to reach me is by email or WhatsApp.
           </p>
           <div className="mt-4 space-y-2">
             <a className="block hover:text-accent" href={`mailto:${profile.email}`}>{profile.email}</a>
@@ -99,11 +100,11 @@ export default function Contact() {
                 {errors.message && <span id="message-error" className="text-red-500 text-sm">{errors.message}</span>}
               </label>
               <div className="flex items-center gap-3">
-                <Button type="submit" disabled={status==='sending'}>
-                  {status === 'sending' ? 'Sending…' : 'Send Message'}
+                <Button type="submit" disabled={status === 'sending'}>
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
                 </Button>
                 {status === 'success' && <span className="text-green-600">Sent! I will reply soon.</span>}
-                {status === 'error' && <span className="text-red-600">Something went wrong. Try again.</span>}
+                {status === 'error' && <span className="text-red-600">Something went wrong. Try again or email directly.</span>}
               </div>
             </div>
           </form>
@@ -112,4 +113,3 @@ export default function Contact() {
     </Section>
   )
 }
-
