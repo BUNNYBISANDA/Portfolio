@@ -106,7 +106,7 @@ export const content: Content = {
       blurb: 'This site — fast, accessible, and minimal with smooth interactions.',
       tech: ['Vite', 'React', 'Tailwind'],
       image: project4,
-      links: { github: 'https://github.com/BUNNYBISANDA/Portfolio', live: 'https://bunnybisanda.github.io/Portfolio/' }
+      links: { github: 'https://github.com/BUNNYBISANDA/Portfolio', live: '#' }
     }
   ],
   coachingPlans: [
